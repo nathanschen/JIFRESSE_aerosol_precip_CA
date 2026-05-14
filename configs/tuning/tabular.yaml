@@ -1,0 +1,23 @@
+name: milestone_01_tabular
+backend: optuna
+storage: sqlite:///outputs/studies/milestone_01_tabular.db
+trials: 30
+seed: 42
+search_space:
+  max_depth:
+    type: int
+    low: 4
+    high: 12
+  learning_rate:
+    type: float
+    low: 0.01
+    high: 0.2
+    log: true
+  n_estimators:
+    type: int
+    low: 100
+    high: 500
+  subsample:
+    type: float
+    low: 0.5
+    high: 1.0

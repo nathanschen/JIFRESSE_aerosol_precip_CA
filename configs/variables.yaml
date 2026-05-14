@@ -1,0 +1,217 @@
+variables:
+  precip_target_raw:
+    path: ${jifresse_root}/data/IMERG_6hrly.2017-2023.nc
+    variable: precipitation
+    role: target
+    cadence_hours: 6
+    grid: raw_161x141
+    units: mm_6h
+    regrid_to_canonical: true
+
+  pwv_regrid:
+    path: ${jifresse_root}/tacc_data/GFS_pwv12_regrid.nc
+    variable: pwv
+    role: predictor
+    cadence_hours: 6
+    grid: canonical_140x150
+    units: kg_m2
+    regrid_to_canonical: false
+
+  cw_regrid:
+    path: ${jifresse_root}/tacc_data/GFS_cw12_regrid.nc
+    variable: cw
+    role: predictor
+    cadence_hours: 6
+    grid: canonical_140x150
+    units: unknown
+    regrid_to_canonical: false
+
+  v700_regrid:
+    path: ${jifresse_root}/tacc_data/GFS_v70012_regrid.nc
+    variable: v700
+    role: predictor
+    cadence_hours: 6
+    grid: canonical_140x150
+    units: m_s
+    regrid_to_canonical: false
+
+  topo_regrid:
+    path: ${jifresse_root}/tacc_data/topo_regrid.nc
+    variable: elev
+    role: static
+    cadence_hours: 6
+    grid: canonical_140x150
+    units: m
+    regrid_to_canonical: false
+
+  cape:
+    path: ${jifresse_root}/data_2/GFS_12cape.nc
+    variable: cape
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: j_kg
+    regrid_to_canonical: true
+
+  cin:
+    path: ${jifresse_root}/data_2/GFS_12cin.nc
+    variable: cin
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: j_kg
+    regrid_to_canonical: true
+
+  dbz:
+    path: ${jifresse_root}/data_2/GFS_12dbz.nc
+    variable: dbz
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: dbz
+    regrid_to_canonical: true
+
+  pr:
+    path: ${jifresse_root}/data_2/GFS_12pr.nc
+    variable: pr
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: mm
+    regrid_to_canonical: true
+
+  ps:
+    path: ${jifresse_root}/data_2/GFS_12ps.nc
+    variable: ps
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: pa
+    regrid_to_canonical: true
+
+  qv2:
+    path: ${jifresse_root}/data_2/GFS_12qv2.nc
+    variable: qv2
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: kg_kg
+    regrid_to_canonical: true
+
+  tk2:
+    path: ${jifresse_root}/data_2/GFS_12tk2.nc
+    variable: tk2
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: k
+    regrid_to_canonical: true
+
+  u10:
+    path: ${jifresse_root}/data_2/GFS_12u10.nc
+    variable: u10
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: m_s
+    regrid_to_canonical: true
+
+  v10:
+    path: ${jifresse_root}/data_2/GFS_12v10.nc
+    variable: v10
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: m_s
+    regrid_to_canonical: true
+
+  u700:
+    path: ${jifresse_root}/data_2/GFS_12u700.nc
+    variable: u700
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: m_s
+    regrid_to_canonical: true
+
+  v700:
+    path: ${jifresse_root}/data_2/GFS_12v700.nc
+    variable: v700
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: m_s
+    regrid_to_canonical: true
+
+  cfr:
+    path: ${jifresse_root}/data_2/GFS_12cfr.nc
+    variable: cfr
+    role: predictor
+    cadence_hours: 6
+    grid: raw_65x57
+    units: fraction
+    regrid_to_canonical: true
+
+  bcext:
+    path: ${jifresse_root}/clean_data/MERRA_bcext_regrid.nc
+    variable: BCEXTTAU
+    role: predictor
+    cadence_hours: 6
+    grid: canonical_140x150
+    units: optical_depth
+    regrid_to_canonical: false
+
+  duext:
+    path: ${jifresse_root}/clean_data/MERRA_duext_regrid.nc
+    variable: DUEXTTAU
+    role: predictor
+    cadence_hours: 6
+    grid: canonical_140x150
+    units: optical_depth
+    regrid_to_canonical: false
+
+  ocext:
+    path: ${jifresse_root}/clean_data/MERRA_ocext_regrid.nc
+    variable: OCEXTTAU
+    role: predictor
+    cadence_hours: 6
+    grid: canonical_140x150
+    units: optical_depth
+    regrid_to_canonical: false
+
+  ssext:
+    path: ${jifresse_root}/clean_data/MERRA_ssext_regrid.nc
+    variable: SSEXTTAU
+    role: predictor
+    cadence_hours: 6
+    grid: canonical_140x150
+    units: optical_depth
+    regrid_to_canonical: false
+
+  suext:
+    path: ${jifresse_root}/clean_data/MERRA_suext_regrid.nc
+    variable: SUEXTTAU
+    role: predictor
+    cadence_hours: 6
+    grid: canonical_140x150
+    units: optical_depth
+    regrid_to_canonical: false
+
+  totext:
+    path: ${jifresse_root}/clean_data/MERRA_totext_regrid.nc
+    variable: TOTEXTTAU
+    role: predictor
+    cadence_hours: 6
+    grid: canonical_140x150
+    units: optical_depth
+    regrid_to_canonical: false
+
+optional_low_res_aerosols:
+  aodana:
+    path: ${jifresse_root}/data/MERRA2_6hrly.AODANA.2017-2023.nc
+    variable: AODANA
+    role: predictor
+    cadence_hours: 6
+    grid: raw_25x29
+    units: optical_depth
+    regrid_to_canonical: true

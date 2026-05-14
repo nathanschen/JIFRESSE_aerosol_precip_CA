@@ -1,0 +1,86 @@
+groups:
+  recent_precip_history:
+    variables:
+      - precip_target_raw
+    derived:
+      - precip_history_lags
+      - precip_lag_differences
+      - precip_rolling_extrema
+
+  moisture:
+    variables:
+      - pwv_regrid
+      - qv2
+    derived:
+      - low_level_moisture_flux
+      - mid_level_moisture_flux
+
+  dynamics:
+    variables:
+      - u10
+      - v10
+      - u700
+      - v700
+    derived:
+      - wind_speed
+      - vertical_shear
+
+  instability_cloud:
+    variables:
+      - cape
+      - cin
+      - cw_regrid
+      - dbz
+      - cfr
+    derived: []
+
+  surface_synoptic:
+    variables:
+      - pr
+      - ps
+      - tk2
+    derived: []
+
+  terrain:
+    variables:
+      - topo_regrid
+    derived:
+      - terrain_gradients
+      - upslope_flow_proxy
+      - coastal_distance_proxy
+
+  aerosols:
+    variables:
+      - totext
+      - bcext
+      - duext
+      - ocext
+      - ssext
+      - suext
+    derived: []
+
+feature_sets:
+  minimal:
+    include_groups:
+      - recent_precip_history
+      - moisture
+      - terrain
+
+  core_no_aerosol:
+    include_groups:
+      - recent_precip_history
+      - moisture
+      - dynamics
+      - instability_cloud
+      - surface_synoptic
+      - terrain
+
+  milestone_01_full:
+    include_groups:
+      - recent_precip_history
+      - moisture
+      - dynamics
+      - instability_cloud
+      - surface_synoptic
+      - terrain
+      - aerosols

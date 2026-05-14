@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "japca"
+version = "0.1.0"
+description = "JAPCA precipitation forecasting rebuild benchmark and modeling stack."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "xarray>=2023.1",
+  "pyyaml>=6.0",
+  "scikit-learn>=1.3",
+  "torch>=2.0",
+  "xgboost>=2.0",
+  "optuna>=3.6",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

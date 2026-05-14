@@ -1,0 +1,28 @@
+repo_root: /Volumes/NathanSSD/JAPCA
+jifresse_root: /Volumes/NathanSSD/JIFRESSE
+
+paths:
+  raw_data_dir: ${jifresse_root}/data
+  raw_data2_dir: ${jifresse_root}/data_2
+  regridded_gfs_dir: ${jifresse_root}/tacc_data
+  regridded_aerosol_dir: ${jifresse_root}/clean_data
+  outputs_dir: ${repo_root}/outputs
+  artifacts_dir: ${repo_root}/artifacts
+  features_dir: ${repo_root}/outputs/features
+  reports_dir: ${repo_root}/outputs/reports
+  studies_dir: ${repo_root}/outputs/studies
+  baselines_dir: ${repo_root}/outputs/baselines
+  models_dir: ${repo_root}/outputs/models
+
+canonical_grid:
+  name: canonical_140x150
+  source_key: pwv_regrid
+  lat_dim: lat
+  lon_dim: lon
+  time_dim: time
+
+benchmark:
+  cadence_hours: 6
+  forecast_horizon_steps: 1
+  default_feature_set: milestone_01_full
+  default_built_dataset: ${repo_root}/outputs/features/milestone_01_full.nc

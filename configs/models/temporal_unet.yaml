@@ -1,0 +1,12 @@
+name: temporal_unet
+sequence_length: 4
+batch_size: 4
+epochs: 5
+learning_rate: 0.0003
+weight_decay: 0.0001
+early_stopping_patience: 2
+hidden_channels: 32
+depth: 2
+use_focal_occurrence_loss: true
+amount_transform: log1p
+derived_target_threshold_mm_6h: 0.1

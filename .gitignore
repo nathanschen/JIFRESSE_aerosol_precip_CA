@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.DS_Store
+._*
+
+# Environments
+.venv/
+venv/
+
+# Experiment outputs
+outputs/*
+!outputs/.gitkeep
+artifacts/*
+!artifacts/.gitkeep
+
+# Model and data artifacts
+*.pt
+*.pth
+*.ckpt
+*.sqlite3
+*.db
+*.nc
+*.zarr
+*.parquet
+*.csv
+*.jsonl

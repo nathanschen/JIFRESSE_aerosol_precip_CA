@@ -1,0 +1,34 @@
+thresholds_mm_6h:
+  - 0.1
+  - 1.0
+  - 5.0
+  - 10.0
+
+fss_windows:
+  - 1
+  - 3
+  - 5
+  - 9
+
+reliability_bins:
+  - 0.0
+  - 0.1
+  - 0.2
+  - 0.3
+  - 0.4
+  - 0.5
+  - 0.6
+  - 0.7
+  - 0.8
+  - 0.9
+  - 1.0
+
+ranking_weights:
+  spatial_fss: 0.35
+  threshold_csi: 0.25
+  occurrence_quality: 0.20
+  amount_quality: 0.20
+
+metric_defaults:
+  occurrence_probability_threshold: 0.5
+  rainy_pixel_threshold_mm_6h: 0.1
