@@ -9,7 +9,7 @@ from japca.models.training import GridForecastDataset
 
 
 def _synthetic_dataset() -> xr.Dataset:
-    time = pd.date_range("2021-01-01", periods=3, freq="6H")
+    time = pd.date_range("2021-01-01", periods=3, freq="6h")
     lat = [0.0, 1.0]
     lon = [0.0, 1.0]
     shape = (3, 2, 2)

@@ -1,0 +1,51 @@
+name: milestone_01_persistence_hybrid_refined
+backend: optuna
+pipeline: persistence_hybrid
+feature_set: milestone_01_full
+storage: sqlite:///outputs/studies/milestone_01_persistence_hybrid_refined.db
+trials: 8
+seed: 42
+enqueue_trials:
+  - classifier__max_depth: 8
+    classifier__learning_rate: 0.05
+    classifier__n_estimators: 200
+    classifier__subsample: 0.8
+    classifier__colsample_bytree: 0.8
+    classifier__min_child_weight: 1.0
+    classifier__gamma: 0.0
+    classifier__scale_pos_weight: 1.0
+search_space:
+  classifier__max_depth:
+    type: int
+    low: 6
+    high: 10
+  classifier__learning_rate:
+    type: float
+    low: 0.03
+    high: 0.08
+    log: true
+  classifier__n_estimators:
+    type: int
+    low: 150
+    high: 320
+  classifier__subsample:
+    type: float
+    low: 0.7
+    high: 0.95
+  classifier__colsample_bytree:
+    type: float
+    low: 0.7
+    high: 1.0
+  classifier__min_child_weight:
+    type: float
+    low: 1.0
+    high: 6.0
+  classifier__gamma:
+    type: float
+    low: 0.0
+    high: 0.8
+  classifier__scale_pos_weight:
+    type: float
+    low: 1.0
+    high: 15.0
+    log: true
