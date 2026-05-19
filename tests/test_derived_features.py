@@ -13,7 +13,7 @@ from japca.features.derive import (
 
 
 def _base_dataset() -> xr.Dataset:
-    time = pd.date_range("2023-01-01", periods=2, freq="6H")
+    time = pd.date_range("2023-01-01", periods=2, freq="6h")
     lat = [0.0, 1.0]
     lon = [0.0, 1.0]
     shape = (2, 2, 2)

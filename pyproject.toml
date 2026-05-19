@@ -7,7 +7,7 @@ name = "japca"
 version = "0.1.0"
 description = "JAPCA precipitation forecasting rebuild benchmark and modeling stack."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12,<3.13"
 dependencies = [
   "numpy>=1.24",
   "pandas>=2.0",

@@ -5,6 +5,15 @@ JAPCA is a ground-up rebuild of the California 6-hour precipitation forecasting 
 1. identify which variables matter most for precipitation forecast quality
 2. select and tune the strongest local-first model family using weather-specific metrics
 
+## Environment
+
+JAPCA targets the `py312_JIFRESSE` conda environment.
+
+```bash
+conda env create -f environment.yml
+conda activate py312_JIFRESSE
+```
+
 ## Milestone 1
 
 Milestone 1 implements:

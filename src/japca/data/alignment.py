@@ -37,16 +37,29 @@ def canonicalize_coords(data_array: xr.DataArray) -> xr.DataArray:
         da = da.sortby("lon")
     if "time" in da.coords:
         da = da.assign_coords(time=_to_datetime_index(da["time"].values))
+    ordered_dims = [dim for dim in ("time", "lat", "lon") if dim in da.dims]
+    remaining_dims = [dim for dim in da.dims if dim not in ordered_dims]
+    if ordered_dims:
+        da = da.transpose(*ordered_dims, *remaining_dims)
     return da
 
 
-def load_dataarray(spec: DatasetSpec, target_lat: xr.DataArray | None = None, target_lon: xr.DataArray | None = None) -> xr.DataArray:
+def load_dataarray(
+    spec: DatasetSpec,
+    target_lat: xr.DataArray | None = None,
+    target_lon: xr.DataArray | None = None,
+    time_index: pd.DatetimeIndex | None = None,
+) -> xr.DataArray:
     dataset = xr.open_dataset(spec.path)
     if spec.variable not in dataset:
         raise KeyError(f"{spec.variable} not found in {spec.path}")
     da = canonicalize_coords(dataset[spec.variable])
+    if time_index is not None and "time" in da.dims:
+        da = da.sel(time=time_index)
     if spec.regrid_to_canonical and target_lat is not None and target_lon is not None:
         da = da.interp(lat=target_lat, lon=target_lon)
+    if np.issubdtype(da.dtype, np.floating):
+        da = da.astype(np.float32)
     return da.rename(spec.build_name)
 
 

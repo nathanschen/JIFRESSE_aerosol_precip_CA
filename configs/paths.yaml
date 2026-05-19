@@ -24,5 +24,9 @@ canonical_grid:
 benchmark:
   cadence_hours: 6
   forecast_horizon_steps: 1
+  sampling:
+    train_per_year: 16
+    dev: 24
+    test: 24
   default_feature_set: milestone_01_full
   default_built_dataset: ${repo_root}/outputs/features/milestone_01_full.nc
